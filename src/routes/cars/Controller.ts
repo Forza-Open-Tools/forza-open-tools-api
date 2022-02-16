@@ -3,7 +3,7 @@ import tbls from '../../lib/tables';
 import { Car, NotFoundError } from '../../lib/types';
 
 export default class CarsController {
-    async car(carId: number) {
+    async car(carId: number): Promise<Car> {
         const car: Car = await knex<Car>(tbls.cars).first('*').where('id', carId);
 
         if (!car) {
@@ -13,7 +13,7 @@ export default class CarsController {
         return car;
     }
 
-    async cars(makeId: number) {
+    async cars(makeId: number): Promise<Car[]> {
         const cars: Car[] = await knex<Car>(tbls.cars).select('*').where('make_id', makeId);
 
         return cars;

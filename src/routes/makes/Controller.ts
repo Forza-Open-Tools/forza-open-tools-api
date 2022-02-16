@@ -3,7 +3,7 @@ import tbls from '../../lib/tables';
 import { NotFoundError, Make } from '../../lib/types';
 
 export default class MakesController {
-    async make(makeId: number) {
+    async make(makeId: number): Promise<Make> {
         const make: Make = await knex<Make>(tbls.makes).first('*').where('id', makeId);
 
         if (!make) {
@@ -13,7 +13,7 @@ export default class MakesController {
         return make;
     }
 
-    async makes() {
+    async makes(): Promise<Make[]> {
         const makes: Make[] = await knex<Make>(tbls.makes).select('*');
 
         return makes;

@@ -7,7 +7,7 @@ export const router: Router = Router();
 
 const controller: MakesController = new MakesController();
 
-router.get('/', async (req: Request, res: Response, next: NextFunction) => {
+router.get('/', async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
         const cars: Make[] = await controller.makes();
 
@@ -17,7 +17,7 @@ router.get('/', async (req: Request, res: Response, next: NextFunction) => {
     }
 });
 
-router.get('/:makeId', async (req: Request, res: Response, next: NextFunction) => {
+router.get('/:makeId', async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
         const makeId: number = Number.parseInt(req.params.makeId as string);
         const make: Make = await controller.make(makeId);
