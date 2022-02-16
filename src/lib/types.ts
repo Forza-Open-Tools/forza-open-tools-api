@@ -83,3 +83,9 @@ export class NotFoundError extends ApiError {
         super(404, 'Not Found.', messageOrError);
     }
 }
+
+export interface KnexQuery {
+    __knexQueryUid: string;
+    sql: string;
+    bindings: string[];
+}
