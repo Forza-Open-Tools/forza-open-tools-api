@@ -4,9 +4,9 @@
   "description": "An node.js/express  web api providing car data for Forza games",
   "main": "src/index.ts",
   "scripts": {
-    "build": "npx tsc --build",
-    "serve": "node dist/src/index.js",
-    "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts"
+    "build": "NODE_ENV=production npx tsc --build",
+    "serve": "NODE_ENV=production node dist/src/index.js",
+    "dev": "NODE_ENV=development ts-node-dev --respawn --pretty --transpile-only src/index.ts"
   },
   "repository": {
     "type": "git",
