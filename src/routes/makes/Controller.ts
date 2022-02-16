@@ -1,33 +1,34 @@
 import knex from '../../lib/knex';
 import tbls from '../../lib/tables';
-import { NotFoundError, Make } from '../../lib/types';
+import { NotFoundError } from '../../lib/types';
+import { Make } from '../../lib/models';
 
 export default class MakesController {
-    async make(makeId: number): Promise<Make> {
-        const make: Make = await knex<Make>(tbls.makes)
-            .first(
-                'id',
-                'display_name AS displayName',
-                'manufacturer_code AS manufacturerCode',
-                'country_id AS countryId'
-            )
-            .where('id', makeId);
+  async make(makeId: number): Promise<Make> {
+    const make: Make = await knex<Make>(tbls.makes)
+      .first(
+        'id',
+        'display_name AS displayName',
+        'manufacturer_code AS manufacturerCode',
+        'country_id AS countryId'
+      )
+      .where('id', makeId);
 
-        if (!make) {
-            throw new NotFoundError(`Make #${makeId} does not exist.`);
-        }
-
-        return make;
+    if (!make) {
+      throw new NotFoundError(`Make #${makeId} does not exist.`);
     }
 
-    async makes(): Promise<Make[]> {
-        const makes: Make[] = await knex<Make>(tbls.makes).select(
-            'id',
-            'display_name AS displayName',
-            'manufacturer_code AS manufacturerCode',
-            'country_id AS countryId'
-        );
+    return make;
+  }
 
-        return makes;
-    }
+  async makes(): Promise<Make[]> {
+    const makes: Make[] = await knex<Make>(tbls.makes).select(
+      'id',
+      'display_name AS displayName',
+      'manufacturer_code AS manufacturerCode',
+      'country_id AS countryId'
+    );
+
+    return makes;
+  }
 }
