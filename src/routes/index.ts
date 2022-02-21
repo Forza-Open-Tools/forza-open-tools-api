@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import * as makes from './makes/Router';
-import * as cars from './cars/Router';
+import * as makes from './makes';
+import * as cars from './cars';
 
 const router: Router = Router();
 router.use(makes.path, makes.router);
