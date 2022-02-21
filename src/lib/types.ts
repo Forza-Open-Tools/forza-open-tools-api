@@ -46,3 +46,35 @@ export interface KnexQuery {
   sql: string;
   bindings: string[];
 }
+
+export interface BunyanSerializedError {
+  privateMessage?: string;
+  message: string;
+  name: string;
+  stack: string;
+  status: number;
+}
+
+export interface BunyanSerializedRequest {
+  method: string;
+  url: string;
+  headers: { [name: string]: string };
+  remotePort: string;
+  remoteAddress: string;
+  ip: string;
+}
+
+export interface BunyanSerializedResponse {
+  statusCode: number;
+  header: { [name: string]: string };
+}
+
+export interface KnexQueryStats {
+  sql: string;
+  bindings: string[];
+  timestamp: number;
+}
+
+export interface KnexQueryDictionary {
+  [uid: string]: KnexQueryStats;
+}

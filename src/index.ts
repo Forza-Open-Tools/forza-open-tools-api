@@ -12,7 +12,7 @@ import notFound from './middleware/not-found';
 dotenv.config();
 
 if (!process.env.PORT) {
-    throw new Error('Env variable "PORT" is not set. Exiting.');
+  throw new Error('Env variable "PORT" is not set. Exiting.');
 }
 
 const port: number = Number.parseInt(process.env.PORT as string);
@@ -26,4 +26,4 @@ app.use(routes);
 app.get('*', notFound);
 app.use(error);
 
-app.listen(port, () => logger.info(`${name} listening on port ${port}.`));
+app.listen(port, (): void => logger.express?.info(`${name} listening on port ${port}.`));

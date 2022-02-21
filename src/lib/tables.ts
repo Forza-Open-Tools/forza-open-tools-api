@@ -1,4 +1,4 @@
 export default {
-    cars: 'cars',
-    makes: 'car_makes'
+  cars: 'cars',
+  makes: 'car_makes'
 };

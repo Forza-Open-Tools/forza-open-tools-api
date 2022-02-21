@@ -10,8 +10,8 @@ export interface Car {
   carClassModifier?: number;
   familyModelId?: number;
   familyBodyId?: number;
-  enginePlacementId?: number,
-  materialTypeId?: number,
+  enginePlacementId?: number;
+  materialTypeId?: number;
   powertrainId?: number;
   curbWeight?: number;
   weightDistribution?: number;
@@ -21,9 +21,9 @@ export interface Car {
   frontTireWidthMM?: number;
   frontTireAspect?: number;
   frontWheelDiameterIN?: number;
-  rearTireWidthMM?: number,
-  rearTireAspect?: number,
-  rearWheelDiameterIN?: number,
+  rearTireWidthMM?: number;
+  rearTireAspect?: number;
+  rearWheelDiameterIN?: number;
   zeroSixtyTimeSec?: number;
   zeroOneHundredTimeSec?: number;
   quarterMileTimeSec?: number;
@@ -70,7 +70,7 @@ export interface BrakeUpgrade {
   id: number;
   ordinal: number;
   level: number;
-  isStock: boolean
+  isStock: boolean;
   manufacturerId: number;
   massDiff: number;
   price: number;
